@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Aircraft Intelligence System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+<div id="app">
+
+    <!-- =====================================================
+         TOP HUD
+    ====================================================== -->
+
+    <header class="top-bar">
+
+        <div class="system-title">
+            DATA ANALYZE
+            <span>| 18036</span>
+        </div>
+
+
+        <div class="top-signal">
+
+            <div class="signal-label">
+                AIRCRAFT TELEMETRY // LIVE DATA STREAM
+            </div>
+
+            <div class="signal-line"></div>
+
+            <div class="signal-ticks">
+                <span>01</span>
+                <span>08</span>
+                <span>16</span>
+                <span>24</span>
+                <span>32</span>
+                <span>48</span>
+                <span>64</span>
+                <span>80</span>
+            </div>
+
+        </div>
+
+
+        <div class="top-status">
+
+            <div class="status-box">
+                SYS 01
+            </div>
+
+            <div class="status-box active">
+                SYS 02
+            </div>
+
+            <div class="status-box">
+                SYS 03
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         LEFT PANEL
+    ====================================================== -->
+
+    <aside class="left-panel">
+
+        <div class="panel-title">
+            SYSTEM MODE
+        </div>
+
+
+        <div class="mode-card">
+
+            <div class="mode-label">
+                CURRENT MODE
+            </div>
+
+            <div class="mode-status">
+                ● 3D AIRCRAFT ANALYSIS
+            </div>
+
+            <div class="mode-sub">
+                HOLOGRAPHIC VISUALIZATION
+            </div>
+
+        </div>
+
+
+        <div class="panel-title level-title">
+            SYSTEM LEVEL
+        </div>
+
+
+        <div class="level-item">
+
+            <div class="level-header">
+
+                <span class="level-number">
+                    36
+                </span>
+
+                <span class="level-value">
+                    36%
+                </span>
+
+            </div>
+
+            <div class="level-bar">
+                <div
+                    class="level-fill"
+                    style="width:36%"
+                ></div>
+            </div>
+
+        </div>
+
+
+        <div class="level-item">
+
+            <div class="level-header">
+
+                <span class="level-number">
+                    66
+                </span>
+
+                <span class="level-value">
+                    66%
+                </span>
+
+            </div>
+
+            <div class="level-bar">
+                <div
+                    class="level-fill"
+                    style="width:66%"
+                ></div>
+            </div>
+
+        </div>
+
+
+        <div class="level-item">
+
+            <div class="level-header">
+
+                <span class="level-number">
+                    79
+                </span>
+
+                <span class="level-value">
+                    79%
+                </span>
+
+            </div>
+
+            <div class="level-bar">
+                <div
+                    class="level-fill"
+                    style="width:79%"
+                ></div>
+            </div>
+
+        </div>
+
+
+        <div class="level-item">
+
+            <div class="level-header">
+
+                <span class="level-number">
+                    92
+                </span>
+
+                <span class="level-value">
+                    92%
+                </span>
+
+            </div>
+
+            <div class="level-bar">
+                <div
+                    class="level-fill"
+                    style="width:92%"
+                ></div>
+            </div>
+
+        </div>
+
+
+        <div class="left-information">
+
+            <div>
+                NODE STATUS
+                <span>ONLINE</span>
+            </div>
+
+            <div>
+                CONNECTION
+                <span>STABLE</span>
+            </div>
+
+            <div>
+                DATA STREAM
+                <span>ACTIVE</span>
+            </div>
+
+            <div>
+                AI CORE
+                <span>READY</span>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN 3D VIEW
+    ====================================================== -->
+
+    <main class="main-view">
+
+        <div
+            id="three-container"
+            class="three-container"
+        ></div>
+
+
+        <!-- corner brackets -->
+
+        <div class="corner top-left"></div>
+        <div class="corner top-right"></div>
+        <div class="corner bottom-left"></div>
+        <div class="corner bottom-right"></div>
+
+
+        <!-- aircraft identification -->
+
+        <div class="aircraft-id">
+
+            AS-8537-698
+
+            <span>
+                // FLIGHT MONITOR
+            </span>
+
+        </div>
+
+
+        <!-- upper technical text -->
+
+        <div class="technical-top">
+
+            <span>FLIGHT SYSTEM</span>
+            <span>MODEL // F-01</span>
+            <span>STATUS // NOMINAL</span>
+
+        </div>
+
+
+        <!-- central targeting system -->
+
+        <div class="target">
+
+            <div class="target-circle circle-1"></div>
+
+            <div class="target-circle circle-2"></div>
+
+            <div class="target-circle circle-3"></div>
+
+            <div class="target-cross horizontal"></div>
+
+            <div class="target-cross vertical"></div>
+
+            <div class="target-dot"></div>
+
+        </div>
+
+
+        <!-- left coordinates -->
+
+        <div class="coordinates">
+
+            <div>
+                X:
+                <span id="coordX">43615478</span>
+            </div>
+
+            <div>
+                Y:
+                <span id="coordY">75794297</span>
+            </div>
+
+            <div>
+                Z:
+                <span id="coordZ">84695165</span>
+            </div>
+
+        </div>
+
+
+        <!-- flight status -->
+
+        <div class="flight-path-label">
+
+            <span class="pulse-dot"></span>
+
+            FLIGHT PATH ACTIVE
+
+        </div>
+
+
+        <!-- loading -->
+
+        <div
+            id="loading"
+            class="loading"
+        >
+
+            <div class="loading-title">
+                INITIALIZING AIRCRAFT
+            </div>
+
+            <div class="loading-bar">
+
+                <div
+                    id="loading-progress"
+                    class="loading-progress"
+                ></div>
+
+            </div>
+
+            <div
+                id="loading-text"
+                class="loading-text"
+            >
+                100%
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         RIGHT PANEL
+    ====================================================== -->
+
+    <aside class="right-panel">
+
+        <div class="panel-title">
+            SYSTEM DATA
+        </div>
+
+
+        <div class="data-grid">
+
+            <div class="data-card">
+                <small>CORE</small>
+                <strong id="core">98</strong>
+            </div>
+
+            <div class="data-card">
+                <small>ENGINE</small>
+                <strong id="engine">94</strong>
+            </div>
+
+            <div class="data-card">
+                <small>FUEL</small>
+                <strong id="fuel">88</strong>
+            </div>
+
+            <div class="data-card">
+                <small>SYS</small>
+                <strong id="system">43</strong>
+            </div>
+
+            <div class="data-card">
+                <small>ALT</small>
+                <strong id="altBox">63</strong>
+            </div>
+
+            <div class="data-card">
+                <small>SPD</small>
+                <strong id="speedBox">79</strong>
+            </div>
+
+            <div class="data-card">
+                <small>TEMP</small>
+                <strong id="temp">68</strong>
+            </div>
+
+            <div class="data-card">
+                <small>AI</small>
+                <strong id="ai">96</strong>
+            </div>
+
+        </div>
+
+
+
+        <div class="parameters">
+
+            <div class="panel-title">
+                FLIGHT PARAMETERS
+            </div>
+
+
+            <div class="parameter">
+                <span>ALTITUDE</span>
+                <strong id="altitude">08632</strong>
+            </div>
+
+
+            <div class="parameter">
+                <span>VELOCITY</span>
+                <strong id="velocity">742</strong>
+            </div>
+
+
+            <div class="parameter">
+                <span>HEADING</span>
+                <strong id="heading">274°</strong>
+            </div>
+
+
+            <div class="parameter">
+                <span>ENGINE</span>
+                <strong id="engineValue">98.4%</strong>
+            </div>
+
+
+            <div class="parameter">
+                <span>PRESSURE</span>
+                <strong id="pressure">064</strong>
+            </div>
+
+
+            <div class="parameter">
+                <span>STABILITY</span>
+                <strong id="stability">96%</strong>
+            </div>
+
+
+            <div class="parameter">
+                <span>PITCH</span>
+                <strong id="pitch">0.0°</strong>
+            </div>
+
+
+            <div class="parameter">
+                <span>ROLL</span>
+                <strong id="roll">0.0°</strong>
+            </div>
+
+        </div>
+
+
+        <div class="right-status">
+
+            <div class="status-line">
+                <span>RADAR</span>
+                <strong>ACTIVE</strong>
+            </div>
+
+            <div class="status-line">
+                <span>GPS</span>
+                <strong>LOCKED</strong>
+            </div>
+
+            <div class="status-line">
+                <span>AI CORE</span>
+                <strong>ONLINE</strong>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         RIGHT SIDE NUMBERS
+    ====================================================== -->
+
+    <div class="side-numbers">
+
+        <span>63</span>
+        <span>80</span>
+        <span>64</span>
+        <span>63</span>
+        <span>27</span>
+        <span>56</span>
+        <span>93</span>
+        <span>85</span>
+        <span>98</span>
+        <span>51</span>
+        <span>21</span>
+        <span>88</span>
+        <span>24</span>
+        <span>43</span>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         BOTTOM HUD
+    ====================================================== -->
+
+    <footer class="bottom-bar">
+
+        <div class="time-block">
+
+            <div class="time-label">
+                TIME MONITORING
+            </div>
+
+            <div
+                id="clock"
+                class="clock"
+            >
+                05:53:15
+            </div>
+
+        </div>
+
+
+        <div class="bottom-data">
+
+            <div class="bottom-item">
+                <small>ALTITUDE</small>
+                <strong id="bottomAltitude">08632</strong>
+            </div>
+
+            <div class="bottom-item">
+                <small>VELOCITY</small>
+                <strong id="bottomVelocity">742</strong>
+            </div>
+
+            <div class="bottom-item">
+                <small>HEADING</small>
+                <strong id="bottomHeading">274°</strong>
+            </div>
+
+            <div class="bottom-item">
+                <small>ENGINE</small>
+                <strong>98.4%</strong>
+            </div>
+
+            <div class="bottom-item">
+                <small>DATA LINK</small>
+                <strong class="cyan">ACTIVE</strong>
+            </div>
+
+            <div class="bottom-item">
+                <small>STATUS</small>
+                <strong class="cyan">NOMINAL</strong>
+            </div>
+
+        </div>
+
+
+        <div class="bottom-bars">
+
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+
+        </div>
+
+    </footer>
+
+</div>
+
+
+
+<!-- =====================================================
+     THREE.JS IMPORTS
+====================================================== -->
+
+<script type="importmap">
+
+{
+    "imports": {
+
+        "three":
+        "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+
+        "three/addons/":
+        "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+
+    }
+}
+
+</script>
+
+
+<script
+    type="module"
+    src="app.js"
+></script>
+
+
+</body>
+
+</html>

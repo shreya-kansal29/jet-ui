@@ -1,0 +1,1467 @@
+@import url(
+    'https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Share+Tech+Mono&display=swap'
+);
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html,
+body {
+
+    width: 100%;
+
+    height: 100%;
+
+    overflow: hidden;
+
+    background: #01050a;
+
+    color: #d9f8ff;
+
+    font-family:
+        'Share Tech Mono',
+        monospace;
+
+}
+
+
+/* =====================================================
+   MAIN APP
+===================================================== */
+
+#app {
+
+    position: relative;
+
+    width: 100vw;
+
+    height: 100vh;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            ellipse at 50% 50%,
+            rgba(0, 75, 170, 0.20),
+            transparent 48%
+        ),
+
+        radial-gradient(
+            ellipse at 50% 100%,
+            rgba(0, 170, 255, 0.07),
+            transparent 45%
+        ),
+
+        linear-gradient(
+            rgba(0, 170, 255, 0.025) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(0, 170, 255, 0.025) 1px,
+            transparent 1px
+        ),
+
+        #01050a;
+
+    background-size:
+        auto,
+        auto,
+        42px 42px,
+        42px 42px,
+        auto;
+
+}
+
+
+/* =====================================================
+   SCANLINES
+===================================================== */
+
+#app::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 100;
+
+    background:
+
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 3px,
+            rgba(0, 220, 255, 0.018) 4px
+        );
+
+}
+
+
+/* =====================================================
+   TOP BAR
+===================================================== */
+
+.top-bar {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    right: 0;
+
+    height: 86px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 28px;
+
+    border-bottom:
+        1px solid rgba(0, 210, 255, 0.28);
+
+    z-index: 20;
+
+}
+
+
+.system-title {
+
+    font-family: Orbitron;
+
+    font-size: 14px;
+
+    letter-spacing: 3px;
+
+    white-space: nowrap;
+
+}
+
+
+.system-title span {
+
+    color: #00eaff;
+
+}
+
+
+.top-signal {
+
+    position: absolute;
+
+    left: 31%;
+
+    right: 19%;
+
+    top: 17px;
+
+    height: 50px;
+
+}
+
+
+.signal-label {
+
+    text-align: center;
+
+    color: #4d91a4;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 9px;
+
+}
+
+
+.signal-line {
+
+    position: relative;
+
+    height: 2px;
+
+    width: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #00d9ff,
+            transparent
+        );
+
+    box-shadow:
+        0 0 14px #00d9ff;
+
+    overflow: hidden;
+
+}
+
+
+.signal-line::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -80px;
+
+    width: 80px;
+
+    height: 100%;
+
+    background: #00eaff;
+
+    box-shadow:
+        0 0 18px #00eaff;
+
+    animation:
+        signalMove 3s linear infinite;
+
+}
+
+
+@keyframes signalMove {
+
+    from {
+        left: -80px;
+    }
+
+    to {
+        left: 100%;
+    }
+
+}
+
+
+.signal-ticks {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 6px;
+
+    color: #2e6574;
+
+    font-size: 6px;
+
+}
+
+
+.top-status {
+
+    margin-left: auto;
+
+    display: flex;
+
+    gap: 9px;
+
+}
+
+
+.status-box {
+
+    width: 72px;
+
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        1px solid rgba(0, 200, 255, 0.30);
+
+    background:
+        rgba(0, 90, 130, 0.08);
+
+    font-size: 8px;
+
+}
+
+
+.status-box.active {
+
+    color: #00eaff;
+
+    border-color:
+        rgba(0, 230, 255, 0.65);
+
+    box-shadow:
+        inset 0 0 12px rgba(0, 200, 255, 0.08),
+        0 0 10px rgba(0, 200, 255, 0.08);
+
+}
+
+
+/* =====================================================
+   SIDE PANELS
+===================================================== */
+
+.left-panel,
+.right-panel {
+
+    position: absolute;
+
+    top: 86px;
+
+    bottom: 74px;
+
+    z-index: 15;
+
+    padding: 30px 20px;
+
+    background:
+        rgba(0, 15, 25, 0.30);
+
+}
+
+
+.left-panel {
+
+    left: 0;
+
+    width: 300px;
+
+    border-right:
+        1px solid rgba(0, 200, 255, 0.25);
+
+}
+
+
+.right-panel {
+
+    right: 0;
+
+    width: 285px;
+
+    border-left:
+        1px solid rgba(0, 200, 255, 0.25);
+
+}
+
+
+/* =====================================================
+   PANEL TITLES
+===================================================== */
+
+.panel-title {
+
+    font-family: Orbitron;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: #c9f5ff;
+
+    margin-bottom: 18px;
+
+}
+
+
+/* =====================================================
+   LEFT MODE CARD
+===================================================== */
+
+.mode-card {
+
+    height: 105px;
+
+    padding: 15px;
+
+    border:
+        1px solid rgba(0, 190, 255, 0.23);
+
+    background:
+        rgba(0, 100, 150, 0.035);
+
+}
+
+
+.mode-label {
+
+    color: #538b99;
+
+    font-size: 8px;
+
+}
+
+
+.mode-status {
+
+    color: #00eaff;
+
+    font-size: 10px;
+
+    margin-top: 15px;
+
+}
+
+
+.mode-sub {
+
+    margin-top: 14px;
+
+    color: #7bb7c5;
+
+    font-size: 8px;
+
+}
+
+
+.level-title {
+
+    margin-top: 30px;
+
+}
+
+
+/* =====================================================
+   SYSTEM LEVELS
+===================================================== */
+
+.level-item {
+
+    margin-bottom: 23px;
+
+}
+
+
+.level-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+.level-number {
+
+    font-family: Orbitron;
+
+    font-size: 27px;
+
+}
+
+
+.level-value {
+
+    color: #53dfff;
+
+    font-size: 8px;
+
+}
+
+
+.level-bar {
+
+    width: 100%;
+
+    height: 6px;
+
+    margin-top: 8px;
+
+    background: #07131d;
+
+    overflow: hidden;
+
+}
+
+
+.level-fill {
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #005cff,
+            #00eaff
+        );
+
+    box-shadow:
+        0 0 14px #00bfff;
+
+    animation:
+        levelPulse 1.8s infinite alternate;
+
+}
+
+
+@keyframes levelPulse {
+
+    from {
+        opacity: .55;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+/* =====================================================
+   LEFT INFORMATION
+===================================================== */
+
+.left-information {
+
+    margin-top: 28px;
+
+    padding-top: 15px;
+
+    border-top:
+        1px solid rgba(0, 190, 255, 0.15);
+
+    font-size: 8px;
+
+}
+
+
+.left-information div {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+
+    color: #548c99;
+
+}
+
+
+.left-information span {
+
+    color: #00eaff;
+
+}
+
+
+/* =====================================================
+   MAIN 3D VIEW
+===================================================== */
+
+.main-view {
+
+    position: absolute;
+
+    top: 86px;
+
+    left: 300px;
+
+    right: 285px;
+
+    bottom: 74px;
+
+    overflow: hidden;
+
+    border:
+        1px solid rgba(0, 200, 255, 0.28);
+
+    background:
+
+        radial-gradient(
+            ellipse at center,
+            rgba(0, 80, 170, 0.13),
+            transparent 67%
+        );
+
+}
+
+
+.three-container {
+
+    position: absolute;
+
+    inset: 0;
+
+    cursor: grab;
+
+}
+
+
+.three-container:active {
+
+    cursor: grabbing;
+
+}
+
+
+/* =====================================================
+   CORNER BRACKETS
+===================================================== */
+
+.corner {
+
+    position: absolute;
+
+    width: 22px;
+
+    height: 22px;
+
+    z-index: 8;
+
+    pointer-events: none;
+
+}
+
+
+.top-left {
+
+    top: 12px;
+
+    left: 12px;
+
+    border-top:
+        2px solid #00d9ff;
+
+    border-left:
+        2px solid #00d9ff;
+
+}
+
+
+.top-right {
+
+    top: 12px;
+
+    right: 12px;
+
+    border-top:
+        2px solid #00d9ff;
+
+    border-right:
+        2px solid #00d9ff;
+
+}
+
+
+.bottom-left {
+
+    bottom: 12px;
+
+    left: 12px;
+
+    border-bottom:
+        2px solid #00d9ff;
+
+    border-left:
+        2px solid #00d9ff;
+
+}
+
+
+.bottom-right {
+
+    bottom: 12px;
+
+    right: 12px;
+
+    border-bottom:
+        2px solid #00d9ff;
+
+    border-right:
+        2px solid #00d9ff;
+
+}
+
+
+/* =====================================================
+   AIRCRAFT ID
+===================================================== */
+
+.aircraft-id {
+
+    position: absolute;
+
+    top: 29px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 7;
+
+    font-family: Orbitron;
+
+    font-size: 17px;
+
+    letter-spacing: 4px;
+
+    text-shadow:
+        0 0 10px #00bfff;
+
+    pointer-events: none;
+
+}
+
+
+.aircraft-id span {
+
+    font-family:
+        'Share Tech Mono';
+
+    color: #4e9aaa;
+
+    font-size: 7px;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =====================================================
+   TECHNICAL TOP TEXT
+===================================================== */
+
+.technical-top {
+
+    position: absolute;
+
+    left: 30px;
+
+    right: 30px;
+
+    top: 65px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #326c7a;
+
+    font-size: 7px;
+
+    letter-spacing: 1px;
+
+    z-index: 7;
+
+    pointer-events: none;
+
+}
+
+
+/* =====================================================
+   TARGET
+===================================================== */
+
+.target {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    width: 190px;
+
+    height: 190px;
+
+    transform:
+        translate(-50%, -50%);
+
+    z-index: 4;
+
+    pointer-events: none;
+
+}
+
+
+.target-circle {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    border:
+        1px solid rgba(0, 220, 255, 0.18);
+
+    border-radius: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+}
+
+
+.circle-1 {
+
+    width: 190px;
+
+    height: 190px;
+
+}
+
+
+.circle-2 {
+
+    width: 125px;
+
+    height: 125px;
+
+}
+
+
+.circle-3 {
+
+    width: 60px;
+
+    height: 60px;
+
+}
+
+
+.target-cross {
+
+    position: absolute;
+
+    background:
+        rgba(0, 220, 255, 0.20);
+
+}
+
+
+.horizontal {
+
+    left: 0;
+
+    right: 0;
+
+    top: 50%;
+
+    height: 1px;
+
+}
+
+
+.vertical {
+
+    top: 0;
+
+    bottom: 0;
+
+    left: 50%;
+
+    width: 1px;
+
+}
+
+
+.target-dot {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    width: 5px;
+
+    height: 5px;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: #00eaff;
+
+    box-shadow:
+        0 0 14px #00eaff;
+
+}
+
+
+/* =====================================================
+   COORDINATES
+===================================================== */
+
+.coordinates {
+
+    position: absolute;
+
+    left: 28px;
+
+    bottom: 25px;
+
+    display: flex;
+
+    gap: 20px;
+
+    font-size: 8px;
+
+    color: #4e9aaa;
+
+    z-index: 7;
+
+    pointer-events: none;
+
+}
+
+
+.coordinates span {
+
+    color: #54ddff;
+
+}
+
+
+/* =====================================================
+   FLIGHT STATUS
+===================================================== */
+
+.flight-path-label {
+
+    position: absolute;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #4d9aaa;
+
+    font-size: 8px;
+
+    z-index: 7;
+
+}
+
+
+.pulse-dot {
+
+    width: 6px;
+
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #00eaff;
+
+    box-shadow:
+        0 0 10px #00eaff;
+
+    animation:
+        dotPulse 1s infinite;
+
+}
+
+
+@keyframes dotPulse {
+
+    50% {
+        opacity: .25;
+    }
+
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.loading {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    width: 250px;
+
+    transform:
+        translate(-50%, -50%);
+
+    text-align: center;
+
+    z-index: 15;
+
+    transition:
+        opacity .5s ease;
+
+}
+
+
+.loading.hidden {
+
+    opacity: 0;
+
+    pointer-events: none;
+
+}
+
+
+.loading-title {
+
+    font-family: Orbitron;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.loading-bar {
+
+    height: 3px;
+
+    background: #07131d;
+
+    overflow: hidden;
+
+}
+
+
+.loading-progress {
+
+    width: 100%;
+
+    height: 100%;
+
+    background: #00eaff;
+
+    box-shadow:
+        0 0 12px #00eaff;
+
+}
+
+
+.loading-text {
+
+    margin-top: 8px;
+
+    color: #4e9aaa;
+
+    font-size: 8px;
+
+}
+
+
+/* =====================================================
+   RIGHT DATA GRID
+===================================================== */
+
+.data-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 7px;
+
+}
+
+
+.data-card {
+
+    height: 58px;
+
+    padding: 8px;
+
+    border:
+        1px solid rgba(0, 180, 255, 0.18);
+
+    background:
+        rgba(0, 90, 130, 0.04);
+
+}
+
+
+.data-card small {
+
+    display: block;
+
+    color: #4b99aa;
+
+    font-size: 6px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.data-card strong {
+
+    font-family: Orbitron;
+
+    font-size: 12px;
+
+    color: #d9faff;
+
+}
+
+
+/* =====================================================
+   PARAMETERS
+===================================================== */
+
+.parameters {
+
+    margin-top: 30px;
+
+}
+
+
+.parameter {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin: 13px 0;
+
+    color: #598e9b;
+
+    font-size: 8px;
+
+}
+
+
+.parameter strong {
+
+    color: #00d9ff;
+
+    font-size: 9px;
+
+}
+
+
+/* =====================================================
+   RIGHT STATUS
+===================================================== */
+
+.right-status {
+
+    margin-top: 25px;
+
+    padding-top: 15px;
+
+    border-top:
+        1px solid rgba(0, 190, 255, 0.15);
+
+}
+
+
+.status-line {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+
+    color: #4e8d9b;
+
+    font-size: 8px;
+
+}
+
+
+.status-line strong {
+
+    color: #00eaff;
+
+}
+
+
+/* =====================================================
+   SIDE NUMBERS
+===================================================== */
+
+.side-numbers {
+
+    position: absolute;
+
+    right: 5px;
+
+    top: 110px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    color: #bfeef7;
+
+    font-size: 10px;
+
+    z-index: 18;
+
+}
+
+
+/* =====================================================
+   BOTTOM BAR
+===================================================== */
+
+.bottom-bar {
+
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 0;
+
+    height: 74px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 28px;
+
+    border-top:
+        1px solid rgba(0, 200, 255, 0.30);
+
+    background:
+        rgba(0, 10, 18, 0.55);
+
+    z-index: 20;
+
+}
+
+
+.time-block {
+
+    min-width: 150px;
+
+}
+
+
+.time-label {
+
+    color: #4a8998;
+
+    font-size: 7px;
+
+    margin-bottom: 4px;
+
+}
+
+
+.clock {
+
+    font-family: Orbitron;
+
+    color: #00eaff;
+
+    font-size: 21px;
+
+    text-shadow:
+        0 0 12px #00bfff;
+
+}
+
+
+.bottom-data {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+}
+
+
+.bottom-item {
+
+    min-width: 70px;
+
+}
+
+
+.bottom-item small {
+
+    display: block;
+
+    color: #4a8998;
+
+    font-size: 6px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.bottom-item strong {
+
+    font-size: 9px;
+
+}
+
+
+.cyan {
+
+    color: #00eaff;
+
+}
+
+
+.bottom-bars {
+
+    margin-left: auto;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    gap: 6px;
+
+}
+
+
+.bottom-bars div {
+
+    width: 9px;
+
+    background: #00bfff;
+
+    box-shadow:
+        0 0 7px #00bfff;
+
+}
+
+
+.bottom-bars div:nth-child(1) {
+
+    height: 16px;
+
+}
+
+
+.bottom-bars div:nth-child(2) {
+
+    height: 26px;
+
+}
+
+
+.bottom-bars div:nth-child(3) {
+
+    height: 37px;
+
+}
+
+
+.bottom-bars div:nth-child(4) {
+
+    height: 47px;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1100px) {
+
+    .left-panel,
+    .right-panel {
+
+        display: none;
+
+    }
+
+
+    .main-view {
+
+        left: 15px;
+
+        right: 15px;
+
+    }
+
+
+    .top-signal {
+
+        display: none;
+
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .bottom-item:nth-child(n+4) {
+
+        display: none;
+
+    }
+
+
+    .bottom-data {
+
+        gap: 12px;
+
+    }
+
+
+    .system-title {
+
+        font-size: 10px;
+
+    }
+
+
+    .status-box {
+
+        width: 50px;
+
+    }
+
+}
